@@ -15,10 +15,6 @@ const CHANNEL_ID = process.env.CHANNEL_ID;
 // case-insensitive regex
 const statusRegex = /\.gg\/balls/i;
 
-if (process.env.HIDE_DEBUG === 'true') {
-	console.log = function() {}
-}
-
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -31,6 +27,10 @@ const client = new Client({
 
 client.once(Events.ClientReady, () => {
   console.log(`Logged in as ${client.user.tag}`);
+
+  if (process.env.HIDE_DEBUG === 'true') {
+	console.log = function() {}
+  }
 });
 
 client.on(Events.PresenceUpdate, async (_, newPresence) => {
@@ -52,12 +52,10 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
 	  return;
 	}
 
-	console.log(`${newPresence.user.tag} updated their status: ${customStatus}`);
-
     // Test your regex
     if (statusRegex.test(customStatus)) {
       await member.roles.add(ROLE_ID);
-	  console.log(`${newPresence.user.tag} → role added`);
+	  console.log(`${newPresence.user.tag} set status to ${customStatus} → role added`);
       const channel = await client.channels.fetch(CHANNEL_ID);
     
 	  if (channel.isTextBased()) {
@@ -75,7 +73,7 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
       	    `• you'll now get link and pic perms! 🙏`
       	  ].join('\n'))
 		  .setTimestamp()
-		  .setFooter({ text: 'Made with 💖 by NoozAbooz' });
+		  .setFooter({ text: 'Add `.gg/balls` to your status to claim!' });
 
       	// send it
       	channel.send({ embeds: [embed] });
