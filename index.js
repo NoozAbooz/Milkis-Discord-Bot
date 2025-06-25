@@ -68,12 +68,12 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
       	//   })
       	  .setDescription([
       	    `thank you ${member} for repping MilkJug!`,
-      	    `• we appreciate your support for us!`,
+      	    `• we appreciate your support for us! 😍`,
       	    `• since you're a supporter, we've given you <@&${ROLE_ID}> 🎁`,
-      	    `• you'll now get link and pic perms! 🙏`
+      	    `• you'll now get link and pic perms! 🔗🖼️ `
       	  ].join('\n'))
 		  .setTimestamp()
-		  .setFooter({ text: 'Add `.gg/balls` to your status to claim!' });
+		  .setFooter({ text: 'Want this too? Add .gg/balls to your status to claim!' });
 
       	// send it
       	channel.send({ embeds: [embed] });
