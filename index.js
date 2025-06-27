@@ -90,4 +90,4 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
   }
 });
 
-client.login(TOKEN);
+client.login(BOT_TOKEN);
