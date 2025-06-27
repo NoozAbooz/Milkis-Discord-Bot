@@ -8,6 +8,7 @@ const {
 } = require('discord.js');
 
 const guildConfig = require('./config.js');
+const BOT_TOKEN = guildConfig.BOT_TOKEN;
 
 const client = new Client({
   intents: [
@@ -22,7 +23,7 @@ const client = new Client({
 client.once(Events.ClientReady, () => {
   console.log(`Logged in as ${client.user.tag}`);
 
-  if (process.env.HIDE_DEBUG === 'true') {
+  if (guildConfig.HIDE_DEBUG === 'true') {
 	console.log = function() {}
   }
 });
@@ -36,7 +37,7 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
     const cfg = guildConfig[newPresence.guild.id];
     if (!cfg) return;            // not configured, skip
 
-    const { roleId, channelId, targetRegex, vanityText } = cfg;
+    const { roleId, channelId, targetRegex, plaintext } = cfg;
 
     // Get *only* the custom-status text
     const customStatus = newPresence.activities
@@ -68,11 +69,11 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
         .setDescription([
           `thank you ${member} for repping us!`,
           `• we appreciate your support for us! 😍`,
-    	    `• since you're a supporter, we've given you <@&${ROLE_ID}> 🎁`,
+    	    `• since you're a supporter, we've given you <@&${roleId}> 🎁`,
     	    `• you'll now get link and pic perms & 20s+ ct! 🔗🖼️ `
     	  ].join('\n'))
 		    .setTimestamp()
-		    .setFooter({ text: `Want this too? Add ${vanityText} to your status to claim!` });
+		    .setFooter({ text: `Want this too? Add ${plaintext} to your status to claim!` });
 
       // send it
       channel.send({ embeds: [embed] });

@@ -5,13 +5,13 @@ module.exports = {
   "GUILD_ID_1": {
     roleId: "ROLE_ID_FOR_GUILD_1",
     channelId: "CHANNEL_ID_FOR_GUILD_1",
-    vanityText: "",
-    regex: ""
+    regex: /\.gg\/sample/i, // checks for ".gg/sample"
+    plaintext: ".gg/sample" // plaintext version of the regex to be displayed in embeds
   },
   "GUILD_ID_2": {
     roleId: "ROLE_ID_FOR_GUILD_2",
     channelId: "CHANNEL_ID_FOR_GUILD_2",
-    vanityText: "",
-    regex: ""
+    regex: /\.gg\/sample/i,
+    plaintext: ".gg/sample"
   },
 };

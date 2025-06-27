@@ -4,8 +4,8 @@ This is a Discord bot that checks for when server members update their status. I
 ## Usage Instructions
 
 1. Clone the respository and fill in the `config.js.sample` file with your own values. Rename it to `config.js`.
-2. Edit the statusRegex in `index.js` to match the status you want to check for.
-2. Install the dependencies and run:
+2. Fill out config.js as specified. Multiple guilds can be added as needed.
+3. Install the dependencies and run:
 ```
 npm i
 node index.js
