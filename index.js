@@ -23,8 +23,8 @@ const client = new Client({
 client.once(Events.ClientReady, () => {
   console.log(`Logged in as ${client.user.tag}`);
 
-  if (guildConfig.HIDE_DEBUG === 'true') {
-	console.log = function() {}
+  if (guildConfig.HIDE_DEBUG === 'true') { // funny hack for hiding console logs
+	  console.log = function() {}
   }
 });
 
@@ -37,7 +37,7 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
     const cfg = guildConfig[newPresence.guild.id];
     if (!cfg) return;            // not configured, skip
 
-    const { roleId, channelId, targetRegex, plaintext } = cfg;
+    const { roleId, channelId, targetRegex, regexPlaintext, rewardsText } = cfg; // import vars for the specific guild
 
     // Get *only* the custom-status text
     const customStatus = newPresence.activities
@@ -70,10 +70,10 @@ client.on(Events.PresenceUpdate, async (_, newPresence) => {
           `thank you ${member} for repping us!`,
           `• we appreciate your support for us! 😍`,
     	    `• since you're a supporter, we've given you <@&${roleId}> 🎁`,
-    	    `• you'll now get link and pic perms & 20s+ ct! 🔗🖼️ `
+    	    `${rewardsText}`
     	  ].join('\n'))
 		    .setTimestamp()
-		    .setFooter({ text: `Want this too? Add ${plaintext} to your status to claim!` });
+		    .setFooter({ text: `Add ${regexPlaintext} to your status to claim!` });
 
       // send it
       channel.send({ embeds: [embed] });

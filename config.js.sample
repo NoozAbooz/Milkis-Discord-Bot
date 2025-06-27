@@ -5,13 +5,19 @@ module.exports = {
   "GUILD_ID_1": {
     roleId: "ROLE_ID_FOR_GUILD_1",
     channelId: "CHANNEL_ID_FOR_GUILD_1",
-    regex: /\.gg\/sample/i, // checks for ".gg/sample"
-    plaintext: ".gg/sample" // plaintext version of the regex to be displayed in embeds
+    targetRegex: /\.gg\/sample/i, // checks for ".gg/sample"
+    regexPlaintext: ".gg/sample", // plaintext version of the regex to be displayed in embeds
+    rewardsText: [
+      "thank you for repping us!",
+    ].join('\n')
   },
   "GUILD_ID_2": {
     roleId: "ROLE_ID_FOR_GUILD_2",
     channelId: "CHANNEL_ID_FOR_GUILD_2",
-    regex: /\.gg\/sample/i,
-    plaintext: ".gg/sample"
+    targetRegex: /\.gg\/sample/i,
+    regexPlaintext: ".gg/sample",
+    rewardsText: [
+      "thank you for repping us!",
+    ].join('\n')
   },
 };
