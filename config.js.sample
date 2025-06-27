@@ -1,0 +1,17 @@
+module.exports = {
+  "BOT_TOKEN": "",
+  "HIDE_DEBUG": false,
+
+  "GUILD_ID_1": {
+    roleId: "ROLE_ID_FOR_GUILD_1",
+    channelId: "CHANNEL_ID_FOR_GUILD_1",
+    vanityText: "",
+    regex: ""
+  },
+  "GUILD_ID_2": {
+    roleId: "ROLE_ID_FOR_GUILD_2",
+    channelId: "CHANNEL_ID_FOR_GUILD_2",
+    vanityText: "",
+    regex: ""
+  },
+};

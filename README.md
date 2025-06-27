@@ -3,7 +3,7 @@ This is a Discord bot that checks for when server members update their status. I
 
 ## Usage Instructions
 
-1. Clone the respository and fill in the `sample.env` file with your own values. Rename it to `.env`.
+1. Clone the respository and fill in the `config.js.sample` file with your own values. Rename it to `config.js`.
 2. Edit the statusRegex in `index.js` to match the status you want to check for.
 2. Install the dependencies and run:
 ```
