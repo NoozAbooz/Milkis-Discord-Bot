@@ -4,6 +4,8 @@ This is a Discord bot that checks for when server members update their status. I
 ![image](https://github.com/user-attachments/assets/ec365174-19fb-446a-b25a-a9501768fc59) <br>
 (automatically triggered message)
 
+[Privacy Policy](./PRIVACY_POLICY.md)
+
 ## Usage Instructions
 
 1. Clone the respository and fill in the `config.js.sample` file with your own values. Rename it to `config.js`.
