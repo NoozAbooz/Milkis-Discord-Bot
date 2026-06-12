@@ -1,4 +1,4 @@
-# Privacy Policy for __Milkis__
+# Privacy Policy
 
 This Privacy Policy governs the collection, use, and sharing of personal information by Milkis, a Discord bot developed by Nooz. By using Milkis, you agree to the terms of this Privacy Policy.
 
